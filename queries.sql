@@ -28,4 +28,7 @@ ROLLBACK;
 -- Transaction that sets the species of all animals 
 BEGIN;
 UPDATE animals SET species = 'digimon' WHERE name::text LIKE '%mon';
+SELECT * FROM animals;
 
+UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
+SELECT * FROM animals;
