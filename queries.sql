@@ -50,3 +50,5 @@ SAVEPOINT SP1;
 
 UPDATE animals SET weight_kg = weight_kg * -1;
 SELECT * FROM animals;
+
+ROLLBACK TO SAVEPOINT SP1;
