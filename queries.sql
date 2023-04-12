@@ -62,3 +62,5 @@ COMMIT;
 SELECT COUNT(*) AS all_animals FROM animals;
 
 SELECT COUNT(escape_attempts) AS animals_without_escape FROM animals WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animals;
