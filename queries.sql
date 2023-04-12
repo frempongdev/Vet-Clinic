@@ -25,3 +25,7 @@ BEGIN;
 UPDATE animals SET species = 'unspecified';
 ROLLBACK;
 
+-- Transaction that sets the species of all animals 
+BEGIN;
+UPDATE animals SET species = 'digimon' WHERE name::text LIKE '%mon';
+
