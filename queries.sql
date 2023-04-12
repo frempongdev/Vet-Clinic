@@ -32,3 +32,11 @@ SELECT * FROM animals;
 
 UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
 SELECT * FROM animals;
+COMMIT;
+
+-- Tansaction to Delete all content of the animals Table.
+BEGIN;
+DELETE FROM animals;
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
