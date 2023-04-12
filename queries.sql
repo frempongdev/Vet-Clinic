@@ -40,3 +40,11 @@ DELETE FROM animals;
 SELECT * FROM animals;
 ROLLBACK;
 SELECT * FROM animals;
+
+-- Transaction to change all negative weights to positive weights in the animal Table.
+BEGIN;
+DELETE FROM animals WHERE date_of_birth > '2022,01,1';
+SELECT * FROM animals;
+
+SAVEPOINT SP1;
+
