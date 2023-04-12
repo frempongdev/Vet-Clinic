@@ -20,3 +20,8 @@ SELECT * FROM animals WHERE name NOT IN ('Gabumon');
 
 SELECT * FROM animals WHERE weight_kg >= 10.4 AND weight_kg <=17.3;
 
+-- Transaction (Rolledback), that add 'unspecified' to spcecies column of all animals 
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+ROLLBACK;
+
