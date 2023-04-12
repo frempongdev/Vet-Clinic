@@ -8,6 +8,10 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) 
 ('Angemon', '2005-06-12', 1, true, -45), ('Boarmon', '2005-06-07', 7, true, 20.4), ('Blossom', '1998-10-13', 3, true, 17),
 ('Ditto', '2022-05-14', 4, true, 22);
 
+-- Transaction (Rolledback), that add 'unspecified' to spcecies column of all animals 
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+ROLLBACK;
 
 
 -- INSERT INTO animals (name) VALUES ('Luna');
