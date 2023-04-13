@@ -81,3 +81,5 @@ SELECT owners.full_name AS owner, animals.name AS animals FROM owners LEFT JOIN 
 SELECT species.name AS species, COUNT(animals.name) AS total_animals FROM species RIGHT JOIN animals ON species.id = animals.species_id GROUP BY species.name;
 
 SELECT animals.name AS all_Jennifer_Digimons FROM animals JOIN species ON animals.species_id = species.id JOIN owners ON animals.owners_id = owners.id WHERE owners.full_name = 'Jennifer Orwell' AND species.name = 'Digimon';
+
+SELECT animals.name AS all_no_ecape_animals_of_Dean FROM animals JOIN owners ON animals.owners_id = owners.id WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
