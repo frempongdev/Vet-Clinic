@@ -18,3 +18,5 @@ ALTER TABLE animals ADD COLUMN species_id integer, ADD CONSTRAINT fk_species FOR
 ALTER TABLE animals DROP COLUMN species;
 
 ALTER TABLE animals ADD COLUMN species_id integer, ADD CONSTRAINT fk_species FOREIGN KEY (species_id) REFERENCES species(id);
+
+ALTER TABLE animals ADD COLUMN owners_id integer, ADD CONSTRAINT fk_owners FOREIGN KEY (owners_id) REFERENCES owners(id);
