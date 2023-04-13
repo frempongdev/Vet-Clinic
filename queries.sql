@@ -77,3 +77,5 @@ SELECT name AS pets_of_Melody FROM animals JOIN owners ON animals.owners_id = ow
 SELECT animals.name AS all_pokemons FROM animals JOIN species ON animals.species_id = species.id WHERE species.name = 'Pokemon';
 
 SELECT owners.full_name AS owner, animals.name AS animals FROM owners LEFT JOIN animals ON owners.id = animals.owners_id;
+
+SELECT species.name AS species, COUNT(animals.name) AS total_animals FROM species RIGHT JOIN animals ON species.id = animals.species_id GROUP BY species.name;
