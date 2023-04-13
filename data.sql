@@ -15,6 +15,6 @@ INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34), ('Jennifer Orwell'
 
 INSERT INTO species (name) VALUES ('Pokemon'), ('Digimon');
 
-UPDATE animals SET species_id = 2 WHERE name::text LIKE '%mon';
+UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'Digimon') WHERE name::text LIKE '%mon';
 
-UPDATE animals SET species_id = 2 WHERE name::text LIKE '%mon';
+UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'Pokemon') WHERE species_id IS NULL;
