@@ -75,3 +75,5 @@ SELECT species, AVG(escape_attempts) AS average_escape_of_1990_to_2000_borns FRO
 SELECT name AS pets_of_Melody FROM animals JOIN owners ON animals.owners_id = owners.id WHERE owners.full_name = 'Melody Pond';
 
 SELECT animals.name AS all_pokemons FROM animals JOIN species ON animals.species_id = species.id WHERE species.name = 'Pokemon';
+
+SELECT owners.full_name AS owner, animals.name AS animals FROM owners LEFT JOIN animals ON owners.id = animals.owners_id;
