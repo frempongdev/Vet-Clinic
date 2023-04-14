@@ -91,4 +91,6 @@ SELECT animals.name AS last_animal_seen_by_William FROM animals INNER JOIN visit
 
 SELECT COUNT(DISTINCT visits.animal_id) AS kinds_of_animals_Stephanie_seen FROM visits INNER JOIN vets ON visits.vet_id = vets.id WHERE vets.name = 'Stephanie Mendez';
 
-SELECT vets.name, species.name AS specialty FROM vets LEFT JOIN specialization ON vets.id = specialization.vets_id LEFT JOIN species ON specialization.species_id = species.id;
+SELECT vets.name AS vet, species.name AS specialty FROM vets LEFT JOIN specialization ON vets.id = specialization.vets_id LEFT JOIN species ON specialization.species_id = species.id;
+
+SELECT animals.name AS animals_visiting_Steph_btn_april_and_august_2020 FROM animals JOIN visits ON animals.id = visits.animal_id JOIN vets ON visits.vet_id = vets.id WHERE visits.vet_id = (SELECT vets.id FROM vets WHERE vets.name = 'Stephanie Mendez') AND visits.date_of_visit BETWEEN '2020,04,01' AND '2020,08,30';
