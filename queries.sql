@@ -96,3 +96,5 @@ SELECT vets.name AS vet, species.name AS specialty FROM vets LEFT JOIN specializ
 SELECT animals.name AS animals_visiting_Steph_btn_april_and_august_2020 FROM animals JOIN visits ON animals.id = visits.animal_id JOIN vets ON visits.vet_id = vets.id WHERE visits.vet_id = (SELECT vets.id FROM vets WHERE vets.name = 'Stephanie Mendez') AND visits.date_of_visit BETWEEN '2020,04,01' AND '2020,08,30';
 
 SELECT animals.name AS animal_with_most_vet_visits FROM animals JOIN visits ON animals.id = visits.animal_id GROUP BY animals.name ORDER BY COUNT(visits.animal_id) DESC LIMIT 1;
+
+SELECT animals.name AS first_animal_to_visit_Maisy FROM animals JOIN visits ON animals.id = visits.animal_id JOIN vets ON visits.vet_id = vets.id WHERE visits.vet_id = (SELECT vets.id FROM vets WHERE vets.name = 'Maisy Smith') ORDER BY visits.date_of_visit LIMIT 1;
