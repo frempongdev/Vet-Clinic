@@ -85,3 +85,8 @@ SELECT animals.name AS all_Jennifer_Digimons FROM animals JOIN species ON animal
 SELECT animals.name AS all_no_ecape_animals_of_Dean FROM animals JOIN owners ON animals.owners_id = owners.id WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
 
 SELECT owners.full_name AS owner_with_most_animals, COUNT(animals.name) AS number_of_animals FROM owners RIGHT JOIN animals ON owners.id = animals.owners_id GROUP BY owners.full_name ORDER BY number_of_animals DESC LIMIT 1;
+
+
+
+
+SELECT animals.name AS last_animal_seen_by_William FROM animals INNER JOIN visits ON animals.id = visits.animal_id INNER JOIN vets ON visits.vet_id = vets.id WHERE vets.name = 'William Tatcher' ORDER BY visits.date_of_visit DESC LIMIT 1;
