@@ -90,3 +90,5 @@ SELECT owners.full_name AS owner_with_most_animals, COUNT(animals.name) AS numbe
 SELECT animals.name AS last_animal_seen_by_William FROM animals INNER JOIN visits ON animals.id = visits.animal_id INNER JOIN vets ON visits.vet_id = vets.id WHERE vets.name = 'William Tatcher' ORDER BY visits.date_of_visit DESC LIMIT 1;
 
 SELECT COUNT(DISTINCT visits.animal_id) AS kinds_of_animals_Stephanie_seen FROM visits INNER JOIN vets ON visits.vet_id = vets.id WHERE vets.name = 'Stephanie Mendez';
+
+SELECT vets.name, species.name AS specialty FROM vets LEFT JOIN specialization ON vets.id = specialization.vets_id LEFT JOIN species ON specialization.species_id = species.id;
