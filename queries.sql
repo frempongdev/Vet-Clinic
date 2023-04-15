@@ -102,3 +102,5 @@ SELECT animals.name AS first_animal_to_visit_Maisy FROM animals JOIN visits ON a
 SELECT animals.name AS animal, vets.name AS vet, visits.date_of_visit FROM animals JOIN visits ON animals.id = visits.animal_id JOIN vets ON visits.vet_id = vets.id ORDER BY date_of_visit DESC LIMIT 1;
 
 SELECT COUNT(*) AS non_specialized_visits FROM visits JOIN animals ON visits.animal_id = animals.id JOIN vets ON visits.vet_id = vets.id LEFT JOIN specialization ON vets.id = specialization.vets_id AND animals.species_id = specialization.species_id WHERE specialization.species_id IS NULL;
+
+SELECT species.name AS species_visiting_Maisy_Smith_most FROM species RIGHT JOIN animals ON species.id = animals.species_id RIGHT JOIN visits ON animals.id = visits.animal_id LEFT JOIN vets on visits.vet_id = vets.id WHERE vets.name = 'Maisy Smith' GROUP BY species.name ORDER BY COUNT(species) DESC LIMIT 1;
